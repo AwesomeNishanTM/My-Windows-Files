@@ -1,0 +1,266 @@
+infix:((H*(((A+((B+C)*D))*F)*G)*E))+J)
+
+SNO	scanned symbol		stackcontained			postfix
+1.					#			p=
+2.		(			#(			p=
+3.		(			#((			p=
+4.		H			#((			P=H
+5.		*			#((*			P=H
+6.		(			#((*(			P=H
+7.		(			#((*((			P=H
+8.		(			#((*(((			p=H
+9.		A			#((*(((			P=HA
+10.		+			#((*(((+		P=HA
+11.		(			#((*(((+(		P=HA
+12.		(			#((*(((+((		P=HA
+13.		B			#((*(((+((		P=HAB
+14.		+			#((*(((+((+		p=HAB
+15.		C			#((*(((+((+		P=HABC
+16.		)			#((*(((+(		P=HABC+
+17.		*			#((*(((+(*		p=HABC+
+18.		D			#((*(((+(*		P=HABC+
+19.		)			#((*(((+		p=HABC+D*
+20.		)			#((*((			P=HABC+*+
+21.		*			#((*((*			P=HABC+D*+
+22.		F			#((*((*			P=HABC+D*+F
+23.		)			#((*(			P=HABC+D*+F*
+24.		*			#((*(*			P=HABC+D*+F*
+25.		G			#((*(*			P=HABC+D*+F*G
+26.		)			#((*			P=HABC+D*+F*G*
+27.		*			#((**			P=HABC+D*+F*G*
+28.		E			#((**			P=HABC+D*+F*G*E
+29.		)			#(			P=HABC+D*+F*G*E**
+30.		+			#(+			P=HABC+D*+F*G*E**
+31.		J			#(			P=HABC+D*+F*G*E**J
+32.		)			#			P=HABC+D*+F*G*E**J+
+33.		#			#			P=HABC+D*+F*G*E**J+#
+
+EVALUATION:2222+*+2*2*2**2+#
+SN	SCAN SYMBOL		STACK CONTAINED
+1.					#
+2.		2			#2
+3.		2			#22
+4.		2			#222
+5.		2			#2222
+6.		+			#224
+7.		2			#2242
+8.		*			#228
+9.		+			#2 10
+10.		2			#2 10 2
+11.		*			#2 20
+12. 		2			#2 20 2
+13.		*			#2 40
+14.		2			#2 40 2
+15.		*			#2 80
+16.		*			#160
+17.		2			#160 2
+18.		+			#162
+
+
+conversion of infix expression to postfix expression.
+
+Q. a*(b+c)*d
+= a*(b+c)*d#
+
+S.NO		scanned symbol 			Stack contained			Postfix
+1.							#			p=
+2.			a				#			p=a	
+3.			*				#*			p=a
+4.			(				#*(			p=a
+5.			b				#*(			p=ab
+6.			+				#*(+			p=ab
+7.			c				#*(+			p=abc
+8.			)				#*			p=abc+
+9.			*				#*			p=abc+*
+10.			d				#*			p=abc+*d
+11.			#				#			p=abc+*d*
+
+evaluating:
+let a=2,b=2,c=2,d=2
+222+*2*
+
+S.NO.		scanned symbol			stack contained
+1.							#
+2.			2				#2
+3.			2				#2 2
+4.			2				#2 2 2
+5.			+				#2 4
+6.			*				#8
+7.			2				#8 2
+8.			*				#16
+9.			#				pop stack contain which is the final answer that is 16					
+
+
+conversion of infix expression to postfix expression.
+
+Q. ( ( A + B ) * ( C – D ) + E ) / (F + G) 
+
+S.NO.		SCANNED SYMBOL			STACK CONTAINED 		POSTFIX
+1.							#			
+2.		(					#(		
+3.		(					#((		
+4.		A					#((			A
+5.		+					#((+			A
+6.		B					#((+			AB
+7.		)					#(			AB+
+8.		*					#(*			AB+
+9.		(					#(*(			AB+
+10.		C					#(*(			AB+C
+11.		-					#(*(-			AB+C
+12.		D					#(*(-			AB+CD
+13.		)					#(*			AB+CD-
+14.		+					#(+			AB+CD-*
+15.		E					#(+			AB+CD-*E
+16.		)					#			AB+CD-*E+
+17.		/					#/			AB+CD-*E+
+18.		(					#/(			AB+CD-*E+
+19.		F					#/(			AB+CD-*E+F
+20.		+					#/(+			AB+CD-*E+F
+21.		G					#/(+			AB+CD-*E+FG
+22.		)					#			AB+CD-*E+FG+/
+23.		#					#			AB+CD-*E+FG+/
+
+Evaluation of the expression:
+AB+CD-*E+FG+/
+Let,
+A=2,B=2,C=2,D=2,E=4,F=2,G=4
+p=22+22-*4+22+/#
+
+SNO		SCANNED SYMBOL			STACK CONTAINED
+1.							#
+2.			2				#2
+3.			2				#2 2
+4.			+				#4
+5.			2				#4 2
+6.			2				#4 2 2
+7.			-				#4 0
+8.			*				#0
+9.			4				#0 4
+10.			+				#4
+11.			2				#4 2
+12.			2				#4 2 2
+13.			+				#4 4
+14.			/				#1
+15.			#				pop stack contain which is the final answer that is 1
+
+CONVERSION OF INFOX TO PREFIX EXPRESSION.
+1. a*(b+c)*d
+=> d*(c+b)*a#
+
+Sno		scanned symbol			stack contained			postfix 
+1.							#			p=
+2.			d				#			p=d
+3.			*				#*			p=d
+4.			(				#*(			p=d
+5.			c				#*(			p=dc
+6.			+				#*(+			p=dc
+7.			b				#*(+			p=dcb
+8.			)				#*			p=dcb+
+9.			*				#*			p=dcb+*
+10.			a				#*			p=dcb+*a
+11.			#				#			p=dcb+*a*
+
+
+in prefix:*a*+bcd
+
+CONVERSION OF INFOX TO PREFIX EXPRESSION.
+
+Q. ( ( A + B ) * ( C – D ) + E ) / (F + G) 
+=> ( G + F ) / ( E + ( D - C ) * ( B + A ) )
+
+Sno		scanned symbol			stack contained			postfix
+1.							#			p=
+2.			(				#(			p=
+3.			G				#(			P=G
+4.			+				#(+			p=G
+5.			F				#(+			p=GF
+6.			)				#			p=GF+
+7.			/				#/			p=GH+
+8.			(				#/(			p=GH+
+9.			E				#/(			p=GH+E
+10.			+				#/(+			p=GH+E
+11.			(				#/(+(			p=GH+E
+12.			D				#/(+(			p=GH+ED
+13.			-				#/(+(-			p=GH+ED
+14.			C				#/(+(-			p=GH+EDC
+15.			)				#/(+			p=GH+EDC-
+16.			*				#/(+*			p=GH+EDC-
+17.			(				#/(+*(			p=GH+EDC-
+18.			B				#/(+*(			p=GH+EDC-B
+19.			+				#/(+*(+			p=GH+EDC-B
+20.			A				#/(+*(+			p=GH+EDC-BA
+21.			)				#/(+*			p=GH+EDC-BA+
+22.			)				#/			p=GH+EDC-BA+*+
+23.			#				#			p=GH+EDC-BA+*+/
+
+Infix expresssion: /+*+AB-CDE+HG
+
+Algorithm to convert infix expression to postfix expression.
+
+1. Create a stack to store operator and postfix to store operand.
+2. Scan the given expression from left to right and do the following for each scanned element:
+	i) if the element is an operand, push it into the postfix.
+	ii) if the element is an operator,do the following:
+		a) push the operator if stack is empty.
+		b) if stack contain operator check its precident value,if its precident value is higher/same than current scanned operator pop it and push it into the 
+		   postfix and store currently scanned operator to stack else push the operator.And if the operator is encounter after opening braces, we check
+		   president of the operator only inside the braces and follow same .
+		c) if the element is opening braces,push it into the stack.
+		d) if the element is closing braces,pop rightmost operator  of stack and push it into postfix each time until its opening braces encounter in stack.
+3. When we scan '#', we pop rightmost operator from stack if is has and push each to postfix until stack is empty. 
+4. At last, value in postfix is the required expression.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void deletefirst(){
+if(Head==null){
+S.o.p("Empty linked list");
+}
+else if (Head==Tail){
+Head=null;
+Tail=null;
+}
+else{
+Head=Head.next;
+}
+}
+
+
+public void deletelast(){
+if(Head==null){
+S.o.p("Empty linked list");
+}
+else if (Head==Tail){
+Head=null;
+Tail=null;
+}
+else{
+SLL temp =new SLL();
+temp=Head;
+while(temp.next!=Tail){
+temp=temp.next;
+}
+temp.next=null;
+Tail=temp;
+}
+}
